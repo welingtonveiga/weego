@@ -1,0 +1,98 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link href="css/index.css" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta charset="UTF-8">
+    </head>
+
+    <body>
+
+    </div>
+       <nav class=" light-blue darken-3">
+        <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Preferências</a>
+        <a href="index.html"><i class="material-icons md-48">arrow_back</i></a>        
+        </div>
+    </nav>
+          
+
+
+    <div class="container config">
+    
+      <form class="col s12">
+        <div class="row">
+          <h5 class="light-blue-text">Identificação</h5>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="name" type="text" value="Jhon Doe">
+            <label for="name">Nome Exibição</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="username" type="text" value="jhondoe">
+            <label for="username">Nome usuário</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="email"  value="jhondoe@mail.com">
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <form action="#">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Carregar</span>
+              <input type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Altere seu avatar">
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="s12">            
+            <button class="btn waves-effect waves-light right" name="action"><i class="material-icons right">save</i> Salvar</button>
+          </div>
+        </div>
+          
+      </form>
+
+    </div>   
+ 
+    <div id="loading"  class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col s12 center-align">
+            <div class="preloader-wrapper big active ">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>        
+
+ 
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/materialize/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    </body>
+  </html>
