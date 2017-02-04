@@ -21,3 +21,7 @@ function hideLoader() {
     $('#loading').modal("close");
 }
 
+// Mensagens
+$(function(){
+    
+});
