@@ -1,7 +1,13 @@
 
+const containers = {
+    '#todas':carregarTodasAsMensagens,
+    '#recebidas': function(sucesso, falha){sucesso([]);},
+    '#enviadas':carregarMensagensEnviadas,
+    '#favoritas':function(sucesso, falha){sucesso([]);}
+};
+
 function montaTemplate(mensagem) {
     var template = $("#mensagem_template").html();
-    console.log(mensagem);
     return template.replace('{{mensagem}}', mensagem.mensagem)
         .replace('{{nome}}', mensagem.autor.nome)
         .replace('{{login}}', mensagem.autor.login)
@@ -29,7 +35,8 @@ function exibirMensagens(container) {
         $('#loading').modal("close");
     };
 
-    carregarMensagens(sucesso, falha);
+    var operacao = containers[container];
+    operacao(sucesso, falha);
 }
 
 
@@ -37,4 +44,7 @@ $(function(){
     
     exibirMensagens('#todas');
     
+    $('.aba').on('click', function(){
+       exibirMensagens($(this).attr('href'));
+    })
 });
