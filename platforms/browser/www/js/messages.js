@@ -21,7 +21,7 @@ function enviarMensagem (mensagem, sucesso, falha) {
 
 function carregarMensagens(sucesso, falha) {
     $.ajax({
-        url: mensagensUrl,
+        url: mensagensUrl+'?&_sort=dataCriacao&_order=DESC',
         type: 'get',
         dataType: 'json',
         success: sucesso,

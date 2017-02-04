@@ -26,125 +26,47 @@
       </ul>
 
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="#test1" class="active" ><i class="material-icons">home</i></a></li>
-        <li class="tab"><a href="#test2"><i class="material-icons">message</i></a></li>
-        <li class="tab"><a href="#test3"><i class="material-icons">chat_bubble_outline</i></a></li>
-        <li class="tab"><a href="#test4"><i class="material-icons">star_rate</i></a></li>
+        <li class="tab"><a href="#todas" class="aba active" ><i class="material-icons">home</i></a></li>
+        <li class="tab"><a href="#recebidas"><i class="aba material-icons">message</i></a></li>
+        <li class="tab"><a href="#enviadas"><i class="aba material-icons">chat_bubble_outline</i></a></li>
+        <li class="tab"><a href="#favoritas"><i class="aba material-icons">star_rate</i></a></li>
       </ul>
     </div>
   </nav>
-  <div id="test1" class="col s12">
-      <div class="container">
+  <div id="todas" class="col s12">
+     <div class="container">
      <div class="row">  
         <div class="col s12 m8 offset-m2 l6 offset-l3 tweets-container">
-          <div class="card-panel grey lighten-5 z-depth-1  mensagem" >
-
-          <div class="row tweet">
-              <div class="col s2">
-                <img src="img/cordova.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-
-              </div>
-              <div class="col s10">
-                <div class="tweet-header"> 
-                    <span class="black-text">
-                      Welington Veiga
-                    </span>          
-                    <span class="gray-text user-login">
-                      @welingtonveiga
-                    </span>          
-                    <span class="black-text right data-mensagem">
-                      agora
-                    </span>
-                </div> 
-                <p class="black-text flow-text">
-                  Calma que a gente chega lá :)
-                </p>
-                <div>
-                  <span class="black-text location">
-                        <i class="material-icons">location_on</i> Muriaé, MG
-                  </span>
-                  <span class="right">
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">reply</i></a>
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">repeat</i></a>
-                  </span>
-                </div>
-              </div>
-            </div>
-       <hr />
-          <div class="row tweet">
-              <div class="col s2">
-                <img src="img/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-              </div>
-              <div class="col s10">
-                <div class="tweet-header"> 
-                    <span class="black-text">
-                      Jhon Doe
-                    </span>          
-                    <span class="gray-text user-login">
-                      @jhondow
-                    </span>          
-                    <span class="black-text right data-mensagem">
-                      30 segundos atrás
-                    </span>
-                </div> 
-                <p class="black-text flow-text">
-                  Isso é estático! Eu quero é escrever código!!!
-                </p>
-                <div>
-                  <span class="black-text location">
-                        <i class="material-icons">location_on</i> Juiz de Fora, MG
-                  </span>
-                  <span class="right">
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">reply</i></a>
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">repeat</i></a>
-                  </span>
-                </div>
-              </div>
-            </div>
-<hr />
           
-            <div class="row tweet">
-              <div class="col s2">
-                <img src="img/cordova.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-
-              </div>
-              <div class="col s10">
-                <div class="tweet-header"> 
-                    <span class="black-text">
-                      Welington Veiga
-                    </span>          
-                    <span class="gray-text user-login">
-                      @welingtonveiga
-                    </span>          
-                    <span class="black-text right data-mensagem">
-                      1 hora atrás
-                    </span>
-                </div> 
-                <p class="black-text flow-text">
-                  Olá Mundo Apache Cordova!
-                </p>
-                <div>
-                  <span class="black-text location">
-                        <i class="material-icons">location_on</i> Muriaé, MG
-                  </span>
-                  <span class="right">
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">reply</i></a>
-                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">repeat</i></a>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>    
   </div>
-  <div id="test2" class="col s12">Test 2</div>
-  <div id="test3" class="col s12">Test 3</div>
-  <div id="test4" class="col s12">Test 4</div>
+  <div id="recebidas" class="col s12">
+   <div class="container">
+     <div class="row">  
+        <div class="col s12 m8 offset-m2 l6 offset-l3 tweets-container">
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div id="enviadas" class="col s12">
+     <div class="container">
+     <div class="row">  
+        <div class="col s12 m8 offset-m2 l6 offset-l3 tweets-container">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="favoritas" class="col s12">
+     <div class="container">
+     <div class="row">  
+        <div class="col s12 m8 offset-m2 l6 offset-l3 tweets-container">
+        </div>
+      </div>
+    </div>
+  </div>
 
-
- 
     <div class="fixed-action-btn">
         <a href="newmessage.html" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">send</i></a>
     </div>
@@ -169,7 +91,8 @@
       </div>
      </div>        
 
-    <script type="template">
+    <script id="mensagem_template" type="template">
+      <div class="card-panel grey lighten-5 z-depth-1  mensagem" >
         <div class="row tweet">
               <div class="col s2">
                 <img src="img/cordova.png" alt="" class="circle responsive-img">
@@ -183,7 +106,7 @@
                 <p class="black-text flow-text">{{mensagem}}</p>
                 <div>
                   <span class="black-text location">
-                        <i class="material-icons">location_on</i> {{location}}
+                        <i class="material-icons">location_on</i> {{local}}
                   </span>
                   <span class="right">
                     <a class="waves-effect waves-teal btn-flat"><i class="material-icons">reply</i></a>
@@ -192,6 +115,7 @@
                 </div>
               </div>
             </div>
+          </div>
     </script>
 
     <!--Import jQuery before materialize.js-->
