@@ -169,7 +169,30 @@
       </div>
      </div>        
 
- 
+    <script type="template">
+        <div class="row tweet">
+              <div class="col s2">
+                <img src="img/cordova.png" alt="" class="circle responsive-img">
+              </div>
+              <div class="col s10">
+                <div class="tweet-header"> 
+                    <span class="black-text">{{nome}}</span>          
+                    <span class="gray-text user-login">@{{login}}</span>          
+                    <span class="black-text right data-mensagem">{{data}}</span>
+                </div> 
+                <p class="black-text flow-text">{{mensagem}}</p>
+                <div>
+                  <span class="black-text location">
+                        <i class="material-icons">location_on</i> {{location}}
+                  </span>
+                  <span class="right">
+                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">reply</i></a>
+                    <a class="waves-effect waves-teal btn-flat"><i class="material-icons">repeat</i></a>
+                  </span>
+                </div>
+              </div>
+            </div>
+    </script>
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
