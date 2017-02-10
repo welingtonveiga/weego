@@ -21,6 +21,10 @@
 
 
 /* Index */
+.tweets-container {  
+    padding-top: 50px !important
+}
+
 .tweet {
     margin-bottom: 0px;
 }
