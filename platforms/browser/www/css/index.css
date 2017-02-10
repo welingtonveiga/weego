@@ -24,6 +24,7 @@
 .tweets-container {  
     padding-top: 50px !important
 }
+.navbar-fixed { z-index: 9999; }
 
 .tweet {
     margin-bottom: 0px;
