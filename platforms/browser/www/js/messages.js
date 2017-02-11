@@ -44,3 +44,7 @@ function carregarMensagensEnviadas(sucesso, falha) {
         return carregarMensagens([{nome:'autor.login', valor: usuario.login}], sucesso, falha);
     }, falha);    
 }
+
+function messageToggleLike(mensagem) {
+    console.log(mensagem);
+}

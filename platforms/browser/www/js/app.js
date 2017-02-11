@@ -48,3 +48,8 @@ function showLoader() {
 function hideLoader() {
     $('#loading').modal("close");
 }
+
+document.addEventListener('deviceready', function() {
+
+   
+});

@@ -7,6 +7,9 @@
     <feature name="AppPreferences">
         <param name="android-package" value="me.apla.cordova.AppPreferences" />
     </feature>
+    <feature name="SQLitePlugin">
+        <param name="android-package" value="io.sqlc.SQLitePlugin" />
+    </feature>
     <name>Weego</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

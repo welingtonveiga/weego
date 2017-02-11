@@ -3,7 +3,7 @@ const containers = {
     '#todas':carregarTodasAsMensagens,
     '#recebidas': function(sucesso, falha){sucesso([]);},
     '#enviadas':carregarMensagensEnviadas,
-    '#favoritas':function(sucesso, falha){sucesso([]);}
+    '#favoritas':listaFavoritas,
 };
 
 function montaTemplate(mensagem) {
@@ -12,7 +12,8 @@ function montaTemplate(mensagem) {
         .replace('{{nome}}', mensagem.autor.nome)
         .replace('{{login}}', mensagem.autor.login)
         .replace('{{local}}', 'Desconhecido')
-        .replace('{{data}}', mensagem.dataCriacao);
+        .replace('{{data}}', mensagem.dataCriacao)
+        .replace('{{indice}}', mensagem.indice);
 }
 
 
@@ -20,14 +21,17 @@ function adicionaMensagem(container, mensagem) {
     $(container+' .tweets-container').append(montaTemplate(mensagem));
 }
 
-function exibirMensagens(container) {
+function exibirMensagens(container, onComplete) {
     $('#loading').modal("open");
 
-    var sucesso = function (data) {        
+    var sucesso = function (data) { 
+        $(container+' .tweets-container').html('');      
         $.each(data, function(i, mensagem) {
+            mensagem.indice = i;
             adicionaMensagem(container, mensagem);
         });
-         $('#loading').modal("close");
+        $('#loading').modal("close");
+        onComplete(data);
     };
 
     var falha = function(){
@@ -42,9 +46,18 @@ function exibirMensagens(container) {
 
 $(function(){
     
-    exibirMensagens('#todas');
+    var onComplete = function (mensagens) {
+        $('.likebutton').on('click', function(e){
+            var mensagem = mensagens[$(this).attr('ref')];
+            toggleFavorita(mensagem, function(row){
+                console.log('toggleFavorita', row);
+            });
+        });
+    };
+
+    exibirMensagens('#todas',onComplete);
     
     $('.aba').on('click', function(){
-       exibirMensagens($(this).attr('href'));
-    })
+       exibirMensagens($(this).attr('href'), onComplete);
+    });
 });

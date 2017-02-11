@@ -36,7 +36,6 @@ document.addEventListener('deviceready', function() {
     });
 
     getUser(deserializarUsuario, function (erros) {
-        console.log('aqui', erros);
         Materialize.toast("Sinto muito... erro ao carregar preferências.", 1500);
     });
 
