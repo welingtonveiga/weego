@@ -1,0 +1,38 @@
+[
+    {
+        "type":"group",
+        "title":"Preferências",
+        "items":[{
+			"title":"Localização Padrão",
+			"type":"textfield",
+			"key":"local"
+		},{
+			"title":"Permitir GPS",
+			"type":"toggle",
+			"default":true,
+			"key":"allowgps"
+		}, {
+			"title":"Idioma",
+			"type":"radio",
+			"key":"lang",
+			"default": "en-us",
+			"items":[{
+				"value":"en-us",
+				"title":"English (US)"
+			}, {
+				"value":"pt-br",
+				"title":"Português"
+			}]
+		}]
+    },
+	{
+		"type":"group",
+		"title":"Outras opções",
+		"items":[{
+			"title":"Notificações",
+			"type":"toggle",
+			"default":false,
+			"key":"debug"
+		}]
+	}
+]

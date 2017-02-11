@@ -14,23 +14,22 @@ $(function(){
         
        $('#loading').modal('open');
        var sucesso = function(){
-            var params = new URLSearchParams("toast=Mensagem enviada com sucesso!");
-            window.location = '/index.html?'+ params.toString();
+            window.location = 'index.html?toast=MESSAGE_SENT';
        };
 
        var falha = function(){
-            Materialize.toast("Sinto muito... erro ao enviar mensagem.", 1500);
+          Materialize.toast("Sinto muito... erro ao enviar mensagem.", 1500);
            $('#loading').modal("close");
        };
 
        var mensagem = $('#mensagem').val();
-       var usuario = {
-            "login": "welingtonveiga",
-            "nome": "Welington Veiga"
-        };
+       
        var local = null; 
 
-       enviarMensagem(montarMensagem(mensagem, usuario, local), sucesso, falha);
+       getUser(function(usuario){
+            enviarMensagem(montarMensagem(mensagem, usuario, local), sucesso, falha);   
+       }, falha);
+       
        return false;
    });   
 });

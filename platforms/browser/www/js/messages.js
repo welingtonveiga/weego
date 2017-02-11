@@ -40,5 +40,7 @@ function carregarTodasAsMensagens(sucesso, falha) {
 }
 
 function carregarMensagensEnviadas(sucesso, falha) {
-    return carregarMensagens([{nome:'autor.login', valor: 'welingtonveiga'}], sucesso, falha);
+    getUser(function(usuario){
+        return carregarMensagens([{nome:'autor.login', valor: usuario.login}], sucesso, falha);
+    }, falha);    
 }
