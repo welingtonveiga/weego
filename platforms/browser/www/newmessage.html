@@ -24,6 +24,8 @@
     <div class="container">
       <div class="row">          
         <form id="formmensagem" class="col s12">
+            <input id="lat" type="hidden" name="lat" />
+            <input id="lon" type="hidden" name="lon" />
             <div class="row">
                 <div class="input-field col s12">
                   <textarea id="mensagem" class="materialize-textarea" length="140"></textarea>
@@ -33,7 +35,7 @@
             <div class="row">
               <div class="s12">
                   <span class="black-text location-big left">
-                    <i class="material-icons">location_on</i> Muriaé, MG
+                    <i class="material-icons">location_on</i> <span id="localizacao">Desconhecido</span>
                   </span>
                 <button id="enviar" class="btn waves-effect waves-light right light-blue darken-3 right disabled" name="action">
                   <i class="material-icons right">send</i> Enviar

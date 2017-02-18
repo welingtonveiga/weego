@@ -19,9 +19,21 @@ function montaTemplate(mensagem) {
 
 function adicionaMensagem(container, mensagem) {
     $(container+' .tweets-container').append(montaTemplate(mensagem));
+
+    var falha = function(erro){
+        console.log("Erro ao adicionar mensagem", erro);
+    };
+
     getAvatar(mensagem.autor.login, function(avatar){
         $('#avatar'+mensagem.indice).attr('src', avatar);
-    });
+    }, falha);
+
+    if (mensagem.local){
+        var coords = {latitude:mensagem.local.lat, longitude:mensagem.local.lon};
+        getNomeLocalizacao(coords, function(local){
+            $('#local'+mensagem.indice).text(local);
+        }, falha);
+    }
 }
 
 function exibirMensagens(container, onComplete) {

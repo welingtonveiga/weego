@@ -66,6 +66,57 @@ function openDB(callback){
     }
 }
 
+function parseNomeLocalizacao(place) {
+    var location = [];
+    console.log(place);
+    for (var i = 0; i < place.address_components.length; i++)
+    {
+        var component = place.address_components[i];
+        switch(component.types[0])
+        {
+            case 'locality':
+                location.push(component.long_name);
+                break;
+            case 'administrative_area_level_1':
+                location.push(component.long_name);
+                break;
+            case 'country':
+                location.push(component.long_name);
+                break;
+        }
+    };
+
+    if (location.length==0) {
+        location = 'Desconhecido';
+    } else {
+        location = location.join(", ");
+    }
+
+    return location;
+}
+
+
+function getNomeLocalizacao(posicao, sucesso, falha) {
+     var geocode = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' 
+            + posicao.latitude + '%2C' + posicao.longitude 
+            + '&language=pt-BR';
+
+    $.ajax({
+        url: geocode,
+        type: 'get',
+        dataType: 'json',
+        success: function(data){
+            sucesso(parseNomeLocalizacao(data.results[0]));
+        },
+        error: function(erro){
+            falha(erro);
+        }
+    });
+}
+
+function getLocalizacao(sucesso, falha){
+    navigator.geolocation.getCurrentPosition(sucesso, falha);
+}
 
 
 document.addEventListener('deviceready', function() {

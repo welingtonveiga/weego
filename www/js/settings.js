@@ -61,7 +61,7 @@ document.addEventListener('deviceready', function() {
         };
 
         navigator.camera.getPicture(sucesso, falha, {
-            quality: 100,
+            quality: 75,
             destinationType: navigator.camera.DestinationType.FILE_URI,
             correctOrientation: true,
             targetWidth:200

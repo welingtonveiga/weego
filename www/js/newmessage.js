@@ -1,8 +1,6 @@
 
 
 
-
-
 $(function(){
 
    $("#mensagem").on("input", function () {
@@ -28,12 +26,28 @@ $(function(){
 
        var mensagem = $('#mensagem').val();
        
-       var local = null; 
+       var local = {lat: $('#lat').val(), lon:$('#lon').val()}; 
 
        getUser(function(usuario){
             enviarMensagem(montarMensagem(mensagem, usuario, local), sucesso, falha);   
        }, falha);
        
        return false;
-   });   
+   });  
+
+   getLocalizacao(function(posicao){
+       
+       $('#lat').val(posicao.coords.latitude);
+       $('#lon').val(posicao.coords.longitude);
+
+       getNomeLocalizacao(posicao.coords, function(nome) {
+           $('#localizacao').text(nome);
+       }, function(){
+           $('#localizacao').text("Desconhecido.");
+       })
+
+
+   }, function(erro){
+       console.log("erro", erro);
+   }); 
 });
