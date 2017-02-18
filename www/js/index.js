@@ -13,12 +13,15 @@ function montaTemplate(mensagem) {
         .replace('{{login}}', mensagem.autor.login)
         .replace('{{local}}', 'Desconhecido')
         .replace('{{data}}', mensagem.dataCriacao)
-        .replace('{{indice}}', mensagem.indice);
+        .replace(new RegExp('{{indice}}', 'g'), mensagem.indice);
 }
 
 
 function adicionaMensagem(container, mensagem) {
     $(container+' .tweets-container').append(montaTemplate(mensagem));
+    getAvatar(mensagem.autor.login, function(avatar){
+        $('#avatar'+mensagem.indice).attr('src', avatar);
+    });
 }
 
 function exibirMensagens(container, onComplete) {

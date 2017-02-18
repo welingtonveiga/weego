@@ -1,5 +1,8 @@
 
-const mensagensUrl = 'http://service-api.herokuapp.com/mensagens';
+const serviceUrl = 'http://service-api.herokuapp.com';
+const mensagensUrl = serviceUrl+'/mensagens';
+const uploadUrl = serviceUrl+'/uploads/';
+const avatarUrl = serviceUrl+'/public/';
 
 const toastMessages = {
     SETTINGS_SAVED: 'Preferências atualizadas!',
@@ -63,6 +66,8 @@ function openDB(callback){
     }
 }
 
+
+
 document.addEventListener('deviceready', function() {
    db = window.sqlitePlugin.openDatabase({name: 'demo.db', location: 'default'});
    db.transaction(function(tx) {
@@ -81,3 +86,5 @@ document.addEventListener('deviceready', function() {
     console.log('Banco de dados pronto.');
   });
 });
+
+

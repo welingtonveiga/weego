@@ -35,8 +35,39 @@ document.addEventListener('deviceready', function() {
         }, function(){});
     });
 
-    getUser(deserializarUsuario, function (erros) {
+    getUser(function(usuario){
+        deserializarUsuario(usuario)
+        getAvatar(usuario.login, function(avatar){
+            $('#avatar').attr('src', avatar); 
+        });
+    }, function (erros) {
         Materialize.toast("Sinto muito... erro ao carregar preferências.", 1500);
+    });
+
+    $('#upload').on('click', function () {
+
+        var sucesso = function(image) {
+            $('#avatar').attr('src', image);
+
+            uploadAvatar($('#login').val(), image, function (){
+                Materialize.toast("Avatar alterado com sucesso!", 1500);
+            }, function (){
+                Materialize.toast("Erro ao enviar avatar...", 1500);
+            })
+        };
+
+        var falha = function(){
+            Materialize.toast("Erro ao tentar acionar câmera do dispositivo", 1500);
+        };
+
+        navigator.camera.getPicture(sucesso, falha, {
+            quality: 100,
+            destinationType: navigator.camera.DestinationType.FILE_URI,
+            correctOrientation: true,
+            targetWidth:200
+        }); 
+
+        return false;
     });
 
 });

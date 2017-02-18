@@ -3,7 +3,7 @@ const containers = {
     '#todas':carregarTodasAsMensagens,
     '#recebidas': function(sucesso, falha){sucesso([]);},
     '#enviadas':carregarMensagensEnviadas,
-    '#favoritas':function(sucesso, falha){sucesso([]);}
+    '#favoritas':listaFavoritas,
 };
 
 function montaTemplate(mensagem) {
@@ -13,18 +13,22 @@ function montaTemplate(mensagem) {
         .replace('{{login}}', mensagem.autor.login)
         .replace('{{local}}', 'Desconhecido')
         .replace('{{data}}', mensagem.dataCriacao)
-        .replace('{{indice}}', mensagem.indice);
+        .replace(new RegExp('{{indice}}', 'g'), mensagem.indice);
 }
 
 
 function adicionaMensagem(container, mensagem) {
     $(container+' .tweets-container').append(montaTemplate(mensagem));
+    getAvatar(mensagem.autor.login, function(avatar){
+        $('#avatar'+mensagem.indice).attr('src', avatar);
+    });
 }
 
 function exibirMensagens(container, onComplete) {
     $('#loading').modal("open");
 
-    var sucesso = function (data) {        
+    var sucesso = function (data) { 
+        $(container+' .tweets-container').html('');      
         $.each(data, function(i, mensagem) {
             mensagem.indice = i;
             adicionaMensagem(container, mensagem);
@@ -48,7 +52,9 @@ $(function(){
     var onComplete = function (mensagens) {
         $('.likebutton').on('click', function(e){
             var mensagem = mensagens[$(this).attr('ref')];
-            messageToggleLike(mensagens);
+            toggleFavorita(mensagem, function(row){
+                console.log('toggleFavorita', row);
+            });
         });
     };
 
@@ -56,5 +62,5 @@ $(function(){
     
     $('.aba').on('click', function(){
        exibirMensagens($(this).attr('href'), onComplete);
-    })
+    });
 });

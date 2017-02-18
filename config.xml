@@ -26,4 +26,9 @@
     <icon src="res/icon.png" />
     <plugin name="cordova-plugin-app-preferences" spec="~0.99.3" />
     <plugin name="cordova-sqlite-storage" spec="~2.0.2" />
+    <plugin name="cordova-plugin-camera" spec="~2.3.1">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Registrar avatar" />
+    </plugin>
+    <plugin name="cordova-plugin-file-transfer" spec="~1.6.1" />
+    <plugin name="cordova-plugin-geolocation" spec="~2.4.1" />
 </widget>
